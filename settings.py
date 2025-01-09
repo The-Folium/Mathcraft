@@ -1,4 +1,4 @@
-source_file = "source/source3.txt"      # Source file to compile
+source_file = "source.txt"      # Source file to compile
 output_filename = "result"              # Without extension
 
 # Compile log settings
@@ -15,5 +15,5 @@ console_output = True
 send_to_drive = False                   # upload via Google Drive API
 
 # Sharing settings:
-e_mail = "alex.randomized@gmail.com" #"bext228.2011@gmail.com"
-credentials_file = "key/my-project-86979-441222-894c0c4e9a2d.json"
+e_mail = None
+credentials_file = None
