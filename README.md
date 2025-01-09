@@ -53,21 +53,21 @@
 6. Перейдіть у розділ `Library`:
    
 ![image](https://github.com/user-attachments/assets/d5b5a27f-f031-4523-ac86-69e16e5a4108)
-8. Знайдіть у бібліотеці Google Drive API і активуйте його:
+7. Знайдіть у бібліотеці Google Drive API і активуйте його:
 
 ![image](https://github.com/user-attachments/assets/7f6ee9d6-ded8-432e-a66d-97e4b6b505d1)
 ![image](https://github.com/user-attachments/assets/73ccb3cb-45f7-415d-863c-dd28e9bfc919)
 
-9. Створіть Service Account:\
+8. Створіть Service Account:\
 ![image](https://github.com/user-attachments/assets/a63861ff-558d-41f9-90da-d47806ba7bd2)
 ![image](https://github.com/user-attachments/assets/f301fbf8-2d8b-4df9-994e-df4216175065)
 ![image](https://github.com/user-attachments/assets/d00d2fea-ba9b-4c2e-83f1-2fccc6aa12d1)
 
-10. Створіть ключ для цього акаунту:
+9. Створіть ключ для цього акаунту:
 ![image](https://github.com/user-attachments/assets/70e76b3c-3874-47c0-8ca4-df2b54307fc9)
 ![image](https://github.com/user-attachments/assets/a3bc8ae1-d256-4c94-92db-651f76410050)
 
-11. Завантажений ключ (файл `*.json`) збережіть і розмістіть у папці проєкту у підпапці `key\`.\
+10. Завантажений ключ (файл `*.json`) збережіть і розмістіть у папці проєкту у підпапці `key\`.\
 Шлях до цього файлу пропишіть у файлі `settings.py` разом із папкою `key\`. Також вкажіть електронну пошту Google-акаунту і змініть параметр `send_to_drive` на `True`.\
 Файл `settings.py` має виглядати приблизно так:
 ```
