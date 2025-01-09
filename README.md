@@ -48,25 +48,20 @@
 ![image](https://github.com/user-attachments/assets/696ca673-6689-4f20-b28a-62d0223939fa)
 5. Перейдіть до розділу `APIs & Services`:
 ![image](https://github.com/user-attachments/assets/9fd45517-94e9-4393-8a3d-0b8ef3434b25)
-або через бокове меню:
+   або через бокове меню:
 ![image](https://github.com/user-attachments/assets/74f525de-e3bc-483d-bd0b-5d87c1d9a52e)
-6. Перейдіть у розділ `Library`:
-   
+6. Перейдіть у розділ `Library`:   
 ![image](https://github.com/user-attachments/assets/d5b5a27f-f031-4523-ac86-69e16e5a4108)
 7. Знайдіть у бібліотеці Google Drive API і активуйте його:
-
 ![image](https://github.com/user-attachments/assets/7f6ee9d6-ded8-432e-a66d-97e4b6b505d1)
 ![image](https://github.com/user-attachments/assets/73ccb3cb-45f7-415d-863c-dd28e9bfc919)
-
 8. Створіть Service Account:\
 ![image](https://github.com/user-attachments/assets/a63861ff-558d-41f9-90da-d47806ba7bd2)
 ![image](https://github.com/user-attachments/assets/f301fbf8-2d8b-4df9-994e-df4216175065)
 ![image](https://github.com/user-attachments/assets/d00d2fea-ba9b-4c2e-83f1-2fccc6aa12d1)
-
 9. Створіть ключ для цього акаунту:
 ![image](https://github.com/user-attachments/assets/70e76b3c-3874-47c0-8ca4-df2b54307fc9)
 ![image](https://github.com/user-attachments/assets/a3bc8ae1-d256-4c94-92db-651f76410050)
-
 10. Завантажений ключ (файл `*.json`) збережіть і розмістіть у папці проєкту у підпапці `key\`.\
 Шлях до цього файлу пропишіть у файлі `settings.py` разом із папкою `key\`. Також вкажіть електронну пошту Google-акаунту і змініть параметр `send_to_drive` на `True`.\
 Файл `settings.py` має виглядати приблизно так:
@@ -156,30 +151,24 @@ function createFormFromLatestCSV() {
   Logger.log('Задачу зі створення форми за даними з CSV файлу успішно виконано.');
 }
 ```
-
 5. Збережіть проєкт:
 ![image](https://github.com/user-attachments/assets/7fa94b56-1270-49c4-8622-4f61104581e7)
-
 6. Запустіть компілятор:
    ```
    python compiler.py
    ```
    Дочекайтесь, поки завантаження результату компіляції на диск закінчиться (зазвичай це декілька секунд)\
    **!!! Увага, Gmail може відправити перший CSV-файл із завданням у спам, отже це треба перевірити і, у випадку, якщо таке сталось, натиснути кнопку `Not spam`.**
-
 7. Натисніть кнопку `Run`. При першому запуску необхідно надати дозволи:\
 ![image](https://github.com/user-attachments/assets/019c0848-cc2e-4060-99df-b6140973db66)
 ![image](https://github.com/user-attachments/assets/fd57506b-8fea-4315-85c4-eab9ed510f10)
 ![image](https://github.com/user-attachments/assets/951b8d2d-9e63-4d57-be43-46a2e3be19f3)
 ![image](https://github.com/user-attachments/assets/bcd91e58-4fe1-4718-8b11-2da1e7689b57)
-
 8. Далі скрипт починає працювати і створює форму із завданнями:
 ![image](https://github.com/user-attachments/assets/d7836280-bbab-423e-a954-992078e79ab8)
-
 9. Ви можете пройти за посиланням на форму, або знайти її серед форм на своєму акаунті:
 ![image](https://github.com/user-attachments/assets/6fa02f26-365a-4c3a-b7d6-c49f4ee3a1c8)
 ![image](https://github.com/user-attachments/assets/498fe039-c395-47e0-9bb4-81e663a5e425)
-
 10. Можна налаштувати тригер скрипта на певний період часу, або запускати його вручну.
 11. Тепер можна створювати безліч завдань, скрипт завжди буде обробляти найновіший файл.
 
