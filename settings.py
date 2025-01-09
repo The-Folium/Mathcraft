@@ -1,4 +1,4 @@
-source_file = "source/source3.txt"      # Source file to compile
+source_file = "source/source.txt"  # Source file to compile
 output_filename = "result"              # Without extension
 
 # Compile log settings
