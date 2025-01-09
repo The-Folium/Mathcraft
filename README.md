@@ -65,28 +65,28 @@
 10. Завантажений ключ (файл `*.json`) збережіть і розмістіть у папці проєкту у підпапці `key\`.\
 Шлях до цього файлу пропишіть у файлі `settings.py` разом із папкою `key\`. Також вкажіть електронну пошту Google-акаунту і змініть параметр `send_to_drive` на `True`.\
 Файл `settings.py` має виглядати приблизно так:
-   ```
-   source_file = "source/source3.txt"      # Source file to compile
-   output_filename = "result"              # Without extension
-   
-   # Compile log settings
-   preprocessed_source_log = True
-   tokenized_source_log = True
-   wait_before_console_quit = True
-   
-   # Output settings
-   csv_output = True                       # for Google Forms integration
-   txt_output = True                       # for pretty print
-   console_output = True
-   
-   # Upload settings
-   send_to_drive = True                   # upload via Google Drive API
-   
-   # Sharing settings:
-   e_mail = "your_address@gmail.com"
-   credentials_file = "key/something_something_something.json"
-   ```
 
+      ```
+      source_file = "source/source3.txt"      # Source file to compile
+      output_filename = "result"              # Without extension
+      
+      # Compile log settings
+      preprocessed_source_log = True
+      tokenized_source_log = True
+      wait_before_console_quit = True
+      
+      # Output settings
+      csv_output = True                       # for Google Forms integration
+      txt_output = True                       # for pretty print
+      console_output = True
+      
+      # Upload settings
+      send_to_drive = True                   # upload via Google Drive API
+      
+      # Sharing settings:
+      e_mail = "your_address@gmail.com"
+      credentials_file = "key/something_something_something.json"
+      ```
 ## Частина 2. Налаштування Google APPS Script
 1. Зайдіть в Google Drive і натисніть кнопку `New`:
 ![image](https://github.com/user-attachments/assets/f1b72906-b022-4cca-b095-c395fc40a61d)
