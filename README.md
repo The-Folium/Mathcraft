@@ -65,27 +65,27 @@
 10. Завантажений ключ (файл `*.json`) збережіть і розмістіть у папці проєкту у підпапці `key\`.\
 Шлях до цього файлу пропишіть у файлі `settings.py` разом із папкою `key\`. Також вкажіть електронну пошту Google-акаунту і змініть параметр `send_to_drive` на `True`.\
 Файл `settings.py` має виглядати приблизно так:
-```
-source_file = "source/source3.txt"      # Source file to compile
-output_filename = "result"              # Without extension
-
-# Compile log settings
-preprocessed_source_log = True
-tokenized_source_log = True
-wait_before_console_quit = True
-
-# Output settings
-csv_output = True                       # for Google Forms integration
-txt_output = True                       # for pretty print
-console_output = True
-
-# Upload settings
-send_to_drive = True                   # upload via Google Drive API
-
-# Sharing settings:
-e_mail = "your_address@gmail.com"
-credentials_file = "key/something_something_something.json"
-```
+   ```
+   source_file = "source/source3.txt"      # Source file to compile
+   output_filename = "result"              # Without extension
+   
+   # Compile log settings
+   preprocessed_source_log = True
+   tokenized_source_log = True
+   wait_before_console_quit = True
+   
+   # Output settings
+   csv_output = True                       # for Google Forms integration
+   txt_output = True                       # for pretty print
+   console_output = True
+   
+   # Upload settings
+   send_to_drive = True                   # upload via Google Drive API
+   
+   # Sharing settings:
+   e_mail = "your_address@gmail.com"
+   credentials_file = "key/something_something_something.json"
+   ```
 
 ## Частина 2. Налаштування Google APPS Script
 1. Зайдіть в Google Drive і натисніть кнопку `New`:
@@ -98,59 +98,59 @@ credentials_file = "key/something_something_something.json"
 ![image](https://github.com/user-attachments/assets/4b4bb0c1-a336-43c1-a171-0ea392456af8)
 
 4. Назвіть проєкт і вставте у редактор код скрипту:
-```
-function createFormFromLatestCSV() {
-  const fileName = "task.csv"; // Стандартна назва файлу із завданням
-  const files = DriveApp.searchFiles(`title = '${fileName}' and trashed = false`);
-  
-  let latestFile = null;
-  let latestTime = 0;
-
-  // Пошук найновішого файлу з потрібним іменем
-  while (files.hasNext()) {
-    const file = files.next();
-    if (file.getLastUpdated().getTime() > latestTime) {
-      latestFile = file;
-      latestTime = file.getLastUpdated().getTime();
-    }
-  }
-
-  if (!latestFile) {
-    Logger.log('Файл з даними для створення форми не знайдено.');
-    return;
-  }
-
-  Logger.log(`Обробка файлу: ${latestFile.getName()} оновленого ${latestFile.getLastUpdated()}`);
-
-  const csvContent = latestFile.getBlob().getDataAsString();
-  const rows = Utilities.parseCsv(csvContent);
-
-  if (!rows || rows.length === 0) {
-    Logger.log('CSV файл порожній або містить некоректні дані.');
-    return;
-  }
-
-  // Створення форми
-  const date = new Date();
-  const formattedDate = Utilities.formatDate(date, Session.getScriptTimeZone(), "dd-MM-yyyy");
-  const form = FormApp.create(`Завдання з математики (${formattedDate})`);
-  Logger.log(`Форму створено: ${form.getEditUrl()}`);
-
-  rows.forEach((row, index) => {
-    if (row.length < 2) return; // Skip rows with insufficient data
-
-    const questionText = row[0];
-    const answerChoices = row.slice(1);
-
-    const item = form.addMultipleChoiceItem();
-    item.setTitle(questionText)
-        .setChoices(answerChoices.map(choice => item.createChoice(choice)))
-        .setRequired(true);
-  });
-
-  Logger.log('Задачу зі створення форми за даними з CSV файлу успішно виконано.');
-}
-```
+   ```
+   function createFormFromLatestCSV() {
+     const fileName = "task.csv"; // Стандартна назва файлу із завданням
+     const files = DriveApp.searchFiles(`title = '${fileName}' and trashed = false`);
+     
+     let latestFile = null;
+     let latestTime = 0;
+   
+     // Пошук найновішого файлу з потрібним іменем
+     while (files.hasNext()) {
+       const file = files.next();
+       if (file.getLastUpdated().getTime() > latestTime) {
+         latestFile = file;
+         latestTime = file.getLastUpdated().getTime();
+       }
+     }
+   
+     if (!latestFile) {
+       Logger.log('Файл з даними для створення форми не знайдено.');
+       return;
+     }
+   
+     Logger.log(`Обробка файлу: ${latestFile.getName()} оновленого ${latestFile.getLastUpdated()}`);
+   
+     const csvContent = latestFile.getBlob().getDataAsString();
+     const rows = Utilities.parseCsv(csvContent);
+   
+     if (!rows || rows.length === 0) {
+       Logger.log('CSV файл порожній або містить некоректні дані.');
+       return;
+     }
+   
+     // Створення форми
+     const date = new Date();
+     const formattedDate = Utilities.formatDate(date, Session.getScriptTimeZone(), "dd-MM-yyyy");
+     const form = FormApp.create(`Завдання з математики (${formattedDate})`);
+     Logger.log(`Форму створено: ${form.getEditUrl()}`);
+   
+     rows.forEach((row, index) => {
+       if (row.length < 2) return; // Skip rows with insufficient data
+   
+       const questionText = row[0];
+       const answerChoices = row.slice(1);
+   
+       const item = form.addMultipleChoiceItem();
+       item.setTitle(questionText)
+           .setChoices(answerChoices.map(choice => item.createChoice(choice)))
+           .setRequired(true);
+     });
+   
+     Logger.log('Задачу зі створення форми за даними з CSV файлу успішно виконано.');
+   }
+   ```
 5. Збережіть проєкт:
 ![image](https://github.com/user-attachments/assets/7fa94b56-1270-49c4-8622-4f61104581e7)
 6. Запустіть компілятор:
