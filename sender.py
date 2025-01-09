@@ -3,6 +3,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
 import io
 from settings import *
+import time
 
 # Налаштування Google Drive API
 SCOPES = ['https://www.googleapis.com/auth/drive']
@@ -67,7 +68,7 @@ def download_file(file_id, destination_path):
 
 
 def upload_file(file_path, file_name, mime_type='text/plain', parent_folder_id=None):
-    """Завантаження файлу на Google диску"""
+    """Завантаження файлу на Google диск"""
     file_metadata = {
         'name': file_name,
         'parents': [parent_folder_id] if parent_folder_id else []
@@ -91,4 +92,5 @@ def share_file(drive_service, file_id, user_email):
 # Основна функція, яка викликається з компілятора
 def upload_and_share(file_path, file_name, mime_type='text/plain', parent_folder_id=None):
     file_id = upload_file(file_path, file_name)
+    time.sleep(1)
     share_file(drive_service, file_id, e_mail)
