@@ -12,8 +12,8 @@ txt_output = True                       # for pretty print
 console_output = True
 
 # Upload settings
-send_to_drive = True                   # upload via Google Drive API
+send_to_drive = False                   # upload via Google Drive API
 
 # Sharing settings:
-e_mail = "aluringabyss@gmail.com"
-credentials_file = "key/onyx-outpost-447308-u5-9dea50d13554.json"
+e_mail = None
+credentials_file = None
