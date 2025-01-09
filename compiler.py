@@ -286,3 +286,5 @@ def logger(text, data, log_stream):
 # Запуск компілятора при запуску файлу compiler.py
 if __name__ == "__main__":
     compile(source_code)
+    if wait_before_console_quit:
+        input("(Press Enter)")
