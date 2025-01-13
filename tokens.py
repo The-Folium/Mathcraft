@@ -87,7 +87,7 @@ class Formula(Token):
         formula = self.data
 
         # Видаляємо квадратні дужки
-        formula = formula[1:-1]
+        formula = " "+formula[1:-1]+" "
 
         # Екстрагуємо прапорці
         if formula.count("&") == 1 and (formula.index("&") != len(formula) - 1):
@@ -98,13 +98,15 @@ class Formula(Token):
 
         # Замінюємо імена змінних на їхні значення
         for name in self.shared.names:
+
             while name in formula:
+
+                print(formula)
                 start = formula.index(name)
                 stop = start + len(name) - 1
                 if (start == 0 or formula[start - 1] not in letters + digits) and (
                         stop == len(formula) - 1 or formula[start - 1] not in letters + digits):
                     formula = formula.replace(name, str(self.shared.names[name]), 1)
-
         # Видаляємо пробіли
         formula = formula.replace(" ", "")
 
